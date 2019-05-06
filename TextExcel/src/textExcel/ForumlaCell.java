@@ -18,7 +18,7 @@ public class ForumlaCell extends RealCell implements Cell{
 		this.contents = super.getContents();
 		//sheet = sheetcopy;
 	}
-	
+	//
 	public String abbreviatedCellText() {
 		return (getValue() + "          ").substring(0, 10) ;
 	}
