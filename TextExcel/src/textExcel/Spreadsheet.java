@@ -97,7 +97,7 @@ public class Spreadsheet implements Grid
 		}
 		output+= "\n"; // next line after column header
 		
-		for (int rows = 0; rows < 20; rows++ ) {
+		for (int rows = 0; rows < 20; rows++ ){
 			String temp = (rows + 1) + "   "; //sets the name for the rows
 			output+= temp.substring(0, 3) + "|";
 			for(int cols = 0; cols < 12 ; cols++) {
@@ -131,7 +131,7 @@ public class Spreadsheet implements Grid
 		else if(userinput.contains("(") && userinput.contains(")")){ //checks if it is a formula cell by checking if there are parenthesis 
 			value = userinput.split(" ",3)[2];
 			//sets 'value' to the formula including the parentheses  
-			Arrayspreadsheet[cellLocation.getRow()][cellLocation.getCol()] = new ForumlaCell(value); 		
+			Arrayspreadsheet[cellLocation.getRow()][cellLocation.getCol()] = new ForumlaCell(value, Arrayspreadsheet); 		
 			//sets the inputed cell location to a formula cell and passes in the formula set in 'value'
 		}
 		else { //if not a formula or a text cell

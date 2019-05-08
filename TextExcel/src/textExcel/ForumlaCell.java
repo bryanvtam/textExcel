@@ -10,15 +10,14 @@ public class ForumlaCell extends RealCell implements Cell{
 
 	private String contents;
 	private double value;
-	private Spreadsheet sheet;
+	private Cell[][] Spreadsheet;
 	
 	
-	public ForumlaCell(String userinput) {
+	public ForumlaCell(String userinput, Cell[][] sheet) {
 		super(userinput);
-		this.contents = super.getContents();
-		//sheet = sheetcopy;
+		Spreadsheet = sheet;
 	}
-	//
+
 	public String abbreviatedCellText() {
 		return (getValue() + "          ").substring(0, 10) ;
 	}
@@ -27,4 +26,13 @@ public class ForumlaCell extends RealCell implements Cell{
 		return contents;
 	}
 	
+	
+	public double doMath(String number, String operation) {
+		if((number.charAt(0)) >= 'A') {
+			String temp = (Spreadsheet[number.charAt(0)][Integer.parseInt(number.substring(1))]).getValue();
+		}
+		
+		
+		return 0.0;
+	}
 }

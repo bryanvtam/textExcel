@@ -13,13 +13,10 @@ public class RealCell implements Cell{
 		contents = userinput; //sets what ever the user inputed as the string contents
 		
 		if(userinput.contains("(") && userinput.contains(")")) {
+			value = 0;
 			String temp = userinput.substring(1, userinput.indexOf(")"));
 			String[] r = temp.split(" ");
-			for(int c = 0; c < r.length; c+=2) {
-				System.out.print (c +" " + (c+1));
-				System.out.println();
-				value = doMath((Integer.parseInt(r[c])), r[c+1]);
-			}
+			
 		}
 		else if( userinput.contains("%")) {
 			value = (Double.parseDouble(userinput.substring(0, userinput.indexOf("%"))))/100;
@@ -42,23 +39,5 @@ public class RealCell implements Cell{
 	}
 	public double getValue() { //returns value in double for "value"
 		return value;
-	}
-	
-	public double doMath(int number, String operation) {
-		double answer = 0;
-		if(operation == "+") {
-			answer += number;
-		}
-		else if(operation == "-") {
-			answer -= number;
-		}
-		else if(operation == "*") {
-			answer *= number;
-		}
-		else if (operation =="/") {
-			answer /= number;
-		}
-		
-		return answer;
 	}
 }
